@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/fetchData/nasaApi.tsx"
+    "src/app/Api/nasaApi.tsx"
   ],
   "exclude": ["node_modules"]
 }
