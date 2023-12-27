@@ -1,5 +1,6 @@
 "use client";
-import { getAstronomyData } from "../Api/nasaApi";
+const apiKey = process.env.NEXT_PUBLIC_NASA_API_KEY;
+import { getData } from "../Api/nasaApi";
 import { useState, useEffect } from "react";
 
 type ImgData = {
@@ -16,15 +17,18 @@ export default function Astronomy() {
   useEffect(() => {
     let arrayLS: ImgData[] = [];
     const fetchData = async () => {
-      await getAstronomyData();
-      const astronomyDataLS = localStorage.getItem("astronomyData");
+      await getData(
+        "astronomyData",
+        `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
+      );
+      const astronomyDataLS = sessionStorage.getItem("astronomyData");
       if (astronomyDataLS) {
         try {
           const dataLS = JSON.parse(astronomyDataLS);
           arrayLS.push(dataLS);
           setDataAstronomyImg(arrayLS);
         } catch (error) {
-          console.error("Error parsing data from localStorage:", error);
+          console.error("Error parsing data from sessionStorage:", error);
         }
       }
     };

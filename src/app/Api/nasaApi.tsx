@@ -1,37 +1,18 @@
-const apiKey = process.env.NEXT_PUBLIC_NASA_API_KEY;
-
-// Astronomy
-export async function getAstronomyData() {
-  const astronomyDataLS = localStorage.getItem("astronomyData") || [];
-  if (astronomyDataLS.length === 0) {
+// Fetch data from NASA API and save it in sessionStorage
+export async function getData(dataLS: string, api: string) {
+  const DataLS = sessionStorage.getItem(dataLS) || [];
+  if (DataLS.length === 0) {
     try {
-      const response = await fetch(
-        `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
-      );
+      const response = await fetch(api);
       const data = await response.json();
 
-      localStorage.setItem("astronomyData", JSON.stringify(data));
+      sessionStorage.setItem(dataLS, JSON.stringify(data));
       console.log("new data in LS", data);
     } catch (err) {
       console.error("Fetching error", err);
       return [];
     }
   } else {
-    console.log("astronomyDataLS exist in localstorage");
+    console.log("Data exist in sessionStorage");
   }
 }
-
-// // Orbital elements
-// export async function getOrbitalElementsData() {
-//   try {
-//     const response = await fetch(
-//       `https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=${apiKey}`
-//     );
-//     const data = await response.json();
-//     // console.log("Success", data);
-//     return [data];
-//   } catch (err) {
-//     // console.error("Fetching error", err);
-//     return [];
-//   }
-// }
