@@ -1,0 +1,11 @@
+.openMenu {
+  @apply animate-slideIn;
+}
+
+.closeMenu {
+  @apply animate-slideOut;
+}
+
+.slideInOpacityAnimation {
+  @apply animate-menuSliderText;
+}

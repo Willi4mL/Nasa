@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./animation.css";
 import Menu from "./components/Menu";
 
 export const metadata: Metadata = {
