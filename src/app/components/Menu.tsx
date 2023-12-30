@@ -36,24 +36,19 @@ export default function Menu() {
             <p className="text-darkBlue text-xl font-mono">Home</p>
           </Link>
           <Link
-            href="/astronomy"
+            href="/pages/astronomy"
             shallow={true}
             className="w-full flex justify-center py-3 hover:bg-darkBlueColor hover:text-whiteTextColor cursor-pointer"
           >
             <p className="text-darkBlue text-xl font-mono">Astronomy</p>
           </Link>
-          <div className="w-full flex justify-center py-3 hover:bg-darkBlueColor hover:text-whiteTextColor cursor-pointer">
-            <p className="text-darkBlue text-xl font-mono">Menu1</p>
-          </div>
-          <div className="w-full flex justify-center py-3 hover:bg-darkBlueColor hover:text-whiteTextColor cursor-pointer">
-            <p className="text-darkBlue text-xl font-mono">Menu1</p>
-          </div>
-          <div className="w-full flex justify-center py-3 hover:bg-darkBlueColor hover:text-whiteTextColor cursor-pointer">
-            <p className="text-darkBlue text-xl font-mono">Menu1</p>
-          </div>
-          <div className="w-full flex justify-center py-3 hover:bg-darkBlueColor hover:text-whiteTextColor cursor-pointer">
-            <p className="text-darkBlue text-xl font-mono">Menu1</p>
-          </div>
+          <Link
+            href="/pages/asteroids"
+            shallow={true}
+            className="w-full flex justify-center py-3 hover:bg-darkBlueColor hover:text-whiteTextColor cursor-pointer"
+          >
+            <p className="text-darkBlue text-xl font-mono">Near Asteroids</p>
+          </Link>
         </div>
       </div>
     </section>
